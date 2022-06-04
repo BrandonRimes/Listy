@@ -39,8 +39,9 @@ const LoginForm = () => {
   return (
     <>
       {loggedIn && <Navigate replace to="/home" />}
-      {error && <p>{error}</p>}
       <form onSubmit={handleSubmit}>
+        <h1>Login</h1>
+        {error && <p>{error}</p>}
         <input type="text" name="username" placeholder="username" onChange={handleChange} value={formState.username}/>
         <input type="password" name="password" placeholder="password" onChange={handleChange} value={formState.password}/>
         <button>Log In</button>

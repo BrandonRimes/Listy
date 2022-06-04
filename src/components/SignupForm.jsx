@@ -50,7 +50,7 @@ const SignupForm = () => {
         <input type="email" name="email" placeholder="email" onChange={handleChange} value={formState.email}/>
         <input type="password" name="password" placeholder="password" onChange={handleChange} value={formState.password}/>
         <input type="password" name="confirmPassword" placeholder="confirm password" onChange={handleChange} value={formState.confirmPassword}/>
-        <button>Sign Up</button>
+        <button type="submit">Sign Up</button>
         <Link to="/login">Log In</Link>
       </form>
     </>

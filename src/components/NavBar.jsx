@@ -9,7 +9,7 @@ const NavBar = () => {
 
   return (
     <nav>
-      <Link to="/"><div id="logo">Listy</div></Link>
+      <Link to="/home"><div id="logo">Listy</div></Link>
       <div id="auth">
         { !user && <>
           <Link to="/login"><div className="auth">log in</div></Link>

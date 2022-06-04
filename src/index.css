@@ -1,3 +1,16 @@
+:root {
+  --border: 1px solid deeppink;
+
+  --button-border: deeppink;
+  --button-background: transparent;
+
+  --input-border: none;
+  --input-background: transparent;
+  --input-shadow: 0 1px 3px black;
+
+  --bubble-border: 1px solid deeppink;
+}
+
 *,
 *::before,
 *::after {
@@ -57,6 +70,7 @@ nav a,
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 90vh;
 }
 
 form {
@@ -65,7 +79,6 @@ form {
   align-items: center;
   justify-content: center;
   width: 100%;
-  border: 1px solid deeppink;
 }
 
 form * {
@@ -74,4 +87,123 @@ form * {
 
 form input {
   height: 1.5rem;
+  border: var(--input-border);
+  border-radius: 5px;
+  background-color: var(--input-background);
+  box-shadow: var(--input-shadow);
+  padding: 5px;
+}
+
+button {
+  border-radius: 50%;
+  border: 1px solid var(--button-border);
+  background-color: var(--button-background);
+  height: 3rem;
+  width: 3rem;
+}
+
+/* home page */
+.homePage {
+  justify-content: space-evenly;
+}
+
+.bubble {
+  height: 25%;
+  width: 80%;
+  border: var(--bubble-border);
+  border-radius: 10px;
+  padding: 0.25rem;
+}
+
+.bubbleButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 0.25rem;
+}
+
+.bubbleItems {
+  height: 65%;
+  overflow-y: scroll;
+  border: var(--bubble-border);
+  border-radius: 0 0 10px 10px;
+  padding: 0.5rem;
+}
+
+.bubbleItems div {
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+/* list view */
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.listName {
+  text-align: center;
+}
+
+#newNameInput {
+  font-size: 1.5rem;
+  text-align: center;
+  outline: none;
+  box-shadow: none;
+}
+
+.newListItemForm {
+  position: relative;
+  flex-direction: row;
+  width: 65vw;
+}
+
+.newListItemInputs {
+  width: 75%;
+}
+
+.newListItemButton {
+  position: absolute;
+  right: 0;
+  font-size: 1.25rem;
+}
+
+.listItems {
+  height: 60vh;
+  width: 85vw;
+}
+
+.listItem {
+  position: relative;
+  padding: 0.5rem;
+}
+
+.listItemDeleteButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 2rem;
+  width: 2rem;
+}
+
+.exitListButton {
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.deleteListButton {
+  position: absolute;
+  bottom: 2%;
+  right: 25%;
+}
+
+.logButton {
+  position: absolute;
+  bottom: 2%;
+  left: 2%;
+  height: 2rem;
+  width: 2rem;
 }

@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import Signup from "./pages/Signup.page";
 import Login from "./pages/Login.page";
 import Home from "./pages/Home.page";
+import ListView from "./pages/ListView.page";
 
 function App() {
 
@@ -14,7 +15,8 @@ function App() {
 
     return {
       token: null,
-      user: null
+      user: null,
+      activeList: null
     };
   }
 
@@ -32,7 +34,8 @@ function App() {
         <Route path="/home" element={<Home />}/>
         <Route path="/login" element={<Login />}/>
         <Route path="/signup" element={<Signup />}/>
-        <Route path="*"/>
+        <Route path="/ListView" element={<ListView />}/>
+        <Route path="*" element={<Login />}/>
       </Routes>
     </Router>
   );
