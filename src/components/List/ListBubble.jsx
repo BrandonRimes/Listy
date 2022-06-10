@@ -1,5 +1,5 @@
 import { useState, useGlobal, useEffect } from "reactn";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import axios from "axios";
 
 import NewListButton from "./NewListButton";
@@ -7,7 +7,6 @@ import NewListButton from "./NewListButton";
 const ListBubble = () => {
 
   const [token, setToken] = useGlobal("token");
-  const [user, setUser] = useGlobal("user");
   const [activeList, setActiveList] = useGlobal("activeList");
 
   const [lists, setLists] = useState(null);
@@ -17,24 +16,24 @@ const ListBubble = () => {
   };
 
   const getLists = async () => {
-    const userLists = await axios.get(`http://localhost:3001/list/`, {user: user._id}, {
-      headers: {
-        "Authorization": `Bearer ${token}`
-      }
-    }).then(response => {setLists(response.data)});
+    try {
+      await axios.get("http://localhost:3001/list/", {
+        headers: {
+          "Authorization": `Bearer ${token}`
+      }}).then(response =>
+          setLists(response.data.sort((a,b) =>
+          new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime())));
+    } catch (error) {
+      console.log(error);
+    };
   };
 
   useEffect(() => {
     getLists();
   }, []);
 
-  const logButton = () => {
-    console.log("lists" ,lists);
-  }
-
   return (
     <div className="bubble">
-      <button onClick={logButton} className="logButton">log</button>
       { activeList && <Navigate to={"/ListView"}/> }
       <div className="bubbleButtons">
         <h3>Lists</h3>
@@ -47,11 +46,11 @@ const ListBubble = () => {
             key={list._id}
             onClick={(e) => handleListClick(e)}>
               {list.name}
-            </div>
+          </div>
         )}
       </div>
     </div>
   )
-}
+};
 
 export default ListBubble;

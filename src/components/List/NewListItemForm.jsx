@@ -1,5 +1,4 @@
 import { useState, useGlobal } from "reactn";
-import { Navigate, Link } from "react-router-dom";
 import axios from "axios";
 
 const NewListItemForm = () => {
@@ -24,11 +23,6 @@ const NewListItemForm = () => {
     e.preventDefault();
 
     try {
-      // if (!activeList.listItems) {
-      //   await setActiveList({...activeList, listItems: [newItem]});
-      // } else {
-      //   await setActiveList({...activeList, listItems: [...activeList.listItems, newItem]});
-      // }
       await axios.post(`http://localhost:3001/listItem/`, {...newItem}, {
         headers: {
           "Authorization": `Bearer ${token}`

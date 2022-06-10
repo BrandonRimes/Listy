@@ -1,9 +1,10 @@
 import { useGlobal } from "reactn";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
-import ListBubble from "../components/ListBubble";
-import RecordBubble from "../components/RecordBubble";
-import EventBubble from "../components/EventBubble";
+import ListBubble from "../components/List/ListBubble";
+import RecordBubble from "../components/Record/RecordBubble";
+import EventBubble from "../components/Event/EventBubble";
+import Settings from "../components/Settings";
 
 const Home = () => {
   const [token, setToken] = useGlobal("token");
@@ -11,11 +12,12 @@ const Home = () => {
   return (
     <div className="page homePage">
       { !token && <Navigate replace to="/"/> }
+      {/* <Settings /> */}
       <ListBubble />
       <RecordBubble />
       <EventBubble />
     </div>
   )
-}
+};
 
 export default Home;

@@ -1,14 +1,16 @@
 :root {
   --border: 1px solid deeppink;
 
-  --button-border: deeppink;
+  --main-background: white;
+
+  --button-border: 1px solid black;
   --button-background: transparent;
 
   --input-border: none;
   --input-background: transparent;
   --input-shadow: 0 1px 3px black;
 
-  --bubble-border: 1px solid deeppink;
+  --bubble-border: 1px solid black;
 }
 
 *,
@@ -28,6 +30,10 @@ body {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  background: var(--main-background);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 code {
@@ -41,6 +47,11 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+#settings {
+  position: absolute;
+  top: 2%;
 }
 
 #auth {
@@ -71,6 +82,8 @@ nav a,
   flex-direction: column;
   align-items: center;
   height: 90vh;
+  max-height: 90vh;
+  overflow: hidden;
 }
 
 form {
@@ -96,13 +109,14 @@ form input {
 
 button {
   border-radius: 50%;
-  border: 1px solid var(--button-border);
+  border: var(--button-border);
   background-color: var(--button-background);
   height: 3rem;
   width: 3rem;
 }
 
-/* home page */
+/* home page --------------------- */
+
 .homePage {
   justify-content: space-evenly;
 }
@@ -135,14 +149,16 @@ button {
   margin-bottom: 5px;
 }
 
-/* list view */
+/* list view --------------------- */
+
 .list {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.listName {
+.listName,
+.recordName {
   text-align: center;
 }
 
@@ -179,7 +195,32 @@ button {
   padding: 0.5rem;
 }
 
-.listItemDeleteButton {
+.listItemText {
+
+}
+
+#editListItemForm {
+  align-items: left;
+}
+
+#editListItemForm input {
+  width: 100%;
+  height: 1.25rem;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  text-align: left;
+  outline: none;
+  box-shadow: none;
+}
+
+.editListItemButton {
+  position: absolute;
+  display: none;
+}
+
+.listItemDeleteButton,
+.recordEntryDeleteButton {
   position: absolute;
   top: 0;
   right: 0;
@@ -187,18 +228,161 @@ button {
   width: 2rem;
 }
 
-.exitListButton {
+.exitListButton,
+.exitRecordButton,
+.exitEventButton {
   position: absolute;
   top: 2%;
   left: 50%;
   transform: translateX(-50%);
 }
 
-.deleteListButton {
+.deleteListButton,
+.deleteRecordButton {
+  position: absolute;
+  bottom: 2%;
+  right: 5%;
+}
+
+.shareList,
+.shareRecord {
   position: absolute;
   bottom: 2%;
   right: 25%;
 }
+
+#shareListForm,
+#shareRecordForm {
+  flex-direction: row;
+  background-color: var(--main-background);
+}
+
+#shareListForm *,
+#shareRecordForm * {
+  margin: 0;
+  margin-left: 0.5rem;
+}
+
+/* records --------------------- */
+
+.record {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 80vh;
+}
+
+.newRecordEntryForm {
+  height: auto;
+}
+
+.recordEntry {
+  position: relative;
+  width: 100%;
+  padding: 0.75rem 1rem;
+}
+
+.recordEntryDeleteButton {
+  right: 1rem;
+}
+
+.chartboxbox {
+  overflow-x: scroll;
+  width: 100vw;
+  height: auto;
+  min-height: 20vh;
+}
+
+.chartbox {
+  height: 100%;
+  width: auto;
+}
+
+.recordEntries {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+#overlay {
+  position: absolute;
+  right: 45%;
+  bottom: 2%;
+  max-width: 50vw;
+  max-height: 25vh;
+  border-radius: 10px;
+  overflow: hidden;
+  overflow-y: scroll;
+  background: var(--main-background);
+}
+
+#overlayButton {
+  height: 3rem;
+  width: 3rem;
+  border: var(--button-border);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  font-size: 0.88rem;
+  background: var(--button-background);
+}
+
+#overlayOptions {
+  padding: 0.5rem;
+  border: var(--button-border);
+  border-radius: 10px;
+  background: var(--button-background);
+}
+
+#overlayOptions p {
+  padding: 0.25rem;
+}
+
+/* event --------------------- */
+ 
+.event {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.event input {
+  height: unset;
+  text-align: center;
+  outline: none;
+  box-shadow: unset;
+  margin: 0;
+  padding: 0;
+}
+
+.event p {
+  margin: 0.25rem;
+}
+
+#eventName {
+  font-size: 1.5rem;
+  margin: 0.25rem;
+}
+
+#eventDatetime {
+  font-size: 1rem;
+  margin: 0.25rem;
+}
+
+.deleteEventButton {
+  position: absolute;
+  right: 2%;
+  bottom: 0;
+}
+
+/* --------------------- */
 
 .logButton {
   position: absolute;

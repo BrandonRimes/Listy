@@ -1,12 +1,10 @@
 import { useGlobal } from "reactn";
-import { Navigate, Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
-import List from "../components/List";
+import List from "../components/List/List";
 
 const ListView = () => {
   const [token, setToken] = useGlobal("token");
-  const [user, setUser] = useGlobal("user");
-  const [activeList, setActiveList] = useGlobal("activeList");
 
   return (
     <div className="page">

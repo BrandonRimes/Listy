@@ -7,7 +7,7 @@ const LoginForm = () => {
   const [token, setToken] = useGlobal("token");
   const [user, setUser] = useGlobal("user");
 
-  const [error, setError] = useState(null);
+  const [errors, setErrors] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
   const [formState, setFormState] = useState({
     username: "",
@@ -31,8 +31,8 @@ const LoginForm = () => {
       setLoggedIn(true);
 
     } catch (er) {
-      setError(er.response.data.errors);
-      console.log("error:", er.response.data.errors);
+      setErrors(er.response.data.errors);
+      console.log("errors:", er.response.data.errors);
     }
   }
 
@@ -41,7 +41,11 @@ const LoginForm = () => {
       {loggedIn && <Navigate replace to="/home" />}
       <form onSubmit={handleSubmit}>
         <h1>Login</h1>
-        {error && <p>{error}</p>}
+        {errors && <>
+          {errors.map((error, index) => 
+            <p key={index}>{error.msg} {error.param}</p>
+          )}
+        </>}
         <input type="text" name="username" placeholder="username" onChange={handleChange} value={formState.username}/>
         <input type="password" name="password" placeholder="password" onChange={handleChange} value={formState.password}/>
         <button>Log In</button>
