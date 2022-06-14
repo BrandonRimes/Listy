@@ -1,5 +1,4 @@
 import { useState, useGlobal } from "reactn";
-import { Navigate } from "react-router-dom";
 import axios from "axios";
 
 const Event = () => {
@@ -52,7 +51,7 @@ const Event = () => {
 
   return (
     <div className="event">
-      { fieldEditing != "eventName" && activeEvent.name ?
+      { fieldEditing !== "eventName" && activeEvent.name ?
         <h2 onClick={handleFieldClick} id="eventName">
           {activeEvent.name}
         </h2>
@@ -84,7 +83,7 @@ const Event = () => {
           id="eventDatetime"
         />
       </form>
-      { fieldEditing != "eventInfo" && activeEvent.info ?
+      { fieldEditing !== "eventInfo" && activeEvent.info ?
         <p onClick={handleFieldClick} id="eventInfo">
           {activeEvent.info}
         </p>
@@ -103,7 +102,7 @@ const Event = () => {
           />
         </form>
       }
-      { fieldEditing != "eventDuration" && activeEvent.duration ?
+      { fieldEditing !== "eventDuration" && activeEvent.duration ?
         <p onClick={handleFieldClick} id="eventDuration">
           {activeEvent.duration}
         </p>
