@@ -1,16 +1,19 @@
 :root {
   --border: 1px solid deeppink;
 
+  --main-color: black;
   --main-background: white;
 
-  --button-border: 1px solid black;
+  --button-border: 1px solid deeppink;
+  --button-color: black;
   --button-background: transparent;
 
   --input-border: none;
+  --input-color: black;
   --input-background: transparent;
   --input-shadow: 0 1px 3px black;
 
-  --bubble-border: 1px solid black;
+  --bubble-border: 1px solid #1b1b1b;
 }
 
 *,
@@ -34,6 +37,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  color: var(--main-color);
 }
 
 code {
@@ -47,6 +51,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 1rem;
 }
 
 #settings {
@@ -105,6 +110,7 @@ form input {
   background-color: var(--input-background);
   box-shadow: var(--input-shadow);
   padding: 5px;
+  color: var(--input-color)
 }
 
 button {
@@ -113,6 +119,7 @@ button {
   background-color: var(--button-background);
   height: 3rem;
   width: 3rem;
+  color: var(--button-color);
 }
 
 /* home page --------------------- */
@@ -197,6 +204,13 @@ button {
 
 .listItemText {
 
+}
+
+.checkbox {
+  position: absolute;
+  left: -1rem;
+  top: 0.68rem;
+  border: var(--button-border);
 }
 
 #editListItemForm {
@@ -344,6 +358,10 @@ button {
 
 /* event --------------------- */
  
+#eventPage {
+  justify-content: space-evenly;
+}
+
 .event {
   position: relative;
   width: 100%;
@@ -358,8 +376,9 @@ button {
   text-align: center;
   outline: none;
   box-shadow: unset;
-  margin: 0;
+  margin: 0.25rem;
   padding: 0;
+  font-size: 1rem;
 }
 
 .event p {

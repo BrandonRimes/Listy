@@ -9,14 +9,6 @@ const Event = () => {
 
   const [fieldEditing, setFieldEditing] = useState("");
 
-  // const [formData, setFormData] = useState({
-  //   name: activeEvent.name,
-  //   users: [...activeEvent.users],
-  //   datetime: "",
-  //   info: "",
-  //   duration: ""
-  // })
-
   const handleFieldClick = async (e) => {
     await setFieldEditing(e.target.id);
     await document.getElementById(e.target.id).focus();

@@ -1,13 +1,16 @@
-import { useGlobal } from "reactn";
+import { useState, useGlobal } from "reactn";
 import { Navigate } from "react-router-dom";
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 
 import Event from "../components/Event/Event";
-import NewEventForm from "../components/Event/NewEventForm";
 
 const EventView = () => {
 
   const [token, setToken] = useGlobal("token");
   const [activeEvent, setActiveEvent] = useGlobal("activeEvent");
+
+  const [calVal, setCalVal] = useState(new Date());
 
   const handleExit = async () => {
     try {
@@ -23,11 +26,12 @@ const EventView = () => {
   };
 
   return (
-    <div className="page">
+    <div className="page" id="eventPage">
       <button onClick={handleExit} className="exitEventButton">home</button>
       { activeEvent && <>
         <Event />
       </> }
+      <Calendar />
       { !activeEvent && <Navigate replace to="/home"/> }
       { !token && <Navigate replace to="/"/> }
     </div>

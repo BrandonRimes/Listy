@@ -70,7 +70,7 @@ const List = () => {
         <NewListItemForm />
         <div className="listItems">
           {activeList.listItems?.map((item, index) => 
-          <ListItem name={item.name} key={index} id={item._id} title={index} info={item.info}/>
+          <ListItem name={item.name} key={index} id={item._id} title={index} info={item.info} checked={item.checked}/>
           )}
         </div>
         <button onClick={handleDelete} className="deleteListButton">delete</button>

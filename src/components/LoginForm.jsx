@@ -24,7 +24,7 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const {data} = await axios.post("http://localhost:3001/auth/login", formState);
+      const {data} = await axios.post("https://listy-the-server.herokuapp.com/auth/login", formState);
 
       setUser(data.user);
       setToken(data.token);
@@ -49,7 +49,6 @@ const LoginForm = () => {
         <input type="text" name="username" placeholder="username" onChange={handleChange} value={formState.username}/>
         <input type="password" name="password" placeholder="password" onChange={handleChange} value={formState.password}/>
         <button>Log In</button>
-        <Link to="/signup">no account? signup!</Link>
       </form>
     </>
   );

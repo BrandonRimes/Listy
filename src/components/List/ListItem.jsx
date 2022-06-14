@@ -7,10 +7,11 @@ const ListItem = (props) => {
   const [activeList, setActiveList] = useGlobal("activeList");
 
   const [editItem, setEditItem] = useState(null);
+  const [checked, setChecked] = useState(props.checked);
 
   const handleDelete = async () => {
     await axios.delete(`http://localhost:3001/listItem/${props.id}`);
-    const newItemList = activeList.listItems.filter(item => item._id != props.id)
+    const newItemList = activeList.listItems.filter(item => item._id != props.id);
     setActiveList({
       ...activeList,
       listItems: newItemList
@@ -37,7 +38,7 @@ const ListItem = (props) => {
         headers: {
           "Authorization": `Bearer ${token}`
         }
-      }).then(response => setActiveList(response.data));
+      }).then(res => setActiveList(res.data));
 
     } catch (error) {
       console.log(error);
@@ -60,9 +61,24 @@ const ListItem = (props) => {
     };
   };
 
+  const handleCheck = async (e) => {
+    try {
+      await setChecked(!checked);
+      await axios.patch(`http://localhost:3001/listItem/${props.id}`, { checked: !checked });
+      await axios.get(`http://localhost:3001/list/${activeList.id}`)
+        .then(res => setActiveList({...activeList, ...res.data}));
+    } catch (error) {
+      console.log(error);
+    };
+  };
+
   return (
     <div className="listItem">
-      { editItem ? <form onSubmit={handleSubmit} onBlur={handleBlur} id="editListItemForm">
+      { editItem ?
+        <form id="editListItemForm"
+          onSubmit={handleSubmit}
+          onBlur={handleBlur}
+        >
           <input
             name="name"
             value={editItem.name}
@@ -82,11 +98,20 @@ const ListItem = (props) => {
             className="listItemInfo"
           />
           <button className="editListItemButton"></button>
-        </form> :
-        <div onClick={handleEdit} className="listItemText">
-          <h4 id={props.id} className="listItemName">{props.name}</h4>
-          <p id={props.id} className="listItemInfo">{props.info}</p>
-        </div>
+        </form>
+        :
+        <>
+          <input className="checkbox"
+            name="checked"
+            checked={checked}
+            onChange={handleCheck}
+            type="checkbox"
+          />
+          <div onClick={handleEdit} className="listItemText">
+            <h4 id={props.id} className="listItemName">{props.name}</h4>
+            <p id={props.id} className="listItemInfo">{props.info}</p>
+          </div>
+        </>
       }
       <button onClick={handleDelete} className="listItemDeleteButton">x</button>
     </div>
