@@ -26,8 +26,8 @@ const SignupForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3001/auth/signup", formState);
-      const {data} = await axios.post("http://localhost:3001/auth/login", {
+      await axios.post("https://listy-the-server.herokuapp.com/auth/signup", formState);
+      const {data} = await axios.post("https://listy-the-server.herokuapp.com/auth/login", {
         username: formState.username,
         password: formState.password
       });
