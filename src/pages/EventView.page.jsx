@@ -4,6 +4,7 @@ import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 
 import Event from "../components/Event/Event";
+import ShareEventButton from "../components/Event/ShareEventButton";
 
 const EventView = () => {
 
@@ -32,6 +33,7 @@ const EventView = () => {
         <Event />
       </> }
       <Calendar />
+      <ShareEventButton />
       { !activeEvent && <Navigate replace to="/home"/> }
       { !token && <Navigate replace to="/"/> }
     </div>
