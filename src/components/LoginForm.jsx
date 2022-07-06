@@ -31,7 +31,7 @@ const LoginForm = () => {
       setLoggedIn(true);
 
     } catch (er) {
-      setErrors(er[0].response.data.errors);
+      // setErrors(er.response.data.errors);
       console.log("errors:", errors);
     }
   }
