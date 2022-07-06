@@ -31,8 +31,8 @@ const LoginForm = () => {
       setLoggedIn(true);
 
     } catch (er) {
-      setErrors(er);
-      console.log("errors:", er);
+      setErrors(er[0].response.data.errors);
+      console.log("errors:", errors);
     }
   }
 
@@ -42,9 +42,9 @@ const LoginForm = () => {
       <form onSubmit={handleSubmit}>
         <h1>Login</h1>
         {errors && <>
-          {errors.map((error, index) => 
+          {/* {errors.map((error, index) => 
             <p key={index}>{error.msg} {error.param}</p>
-          )}
+          )} */}
         </>}
         <input type="text" name="username" placeholder="username" onChange={handleChange} value={formState.username}/>
         <input type="password" name="password" placeholder="password" onChange={handleChange} value={formState.password}/>
