@@ -10,7 +10,7 @@ const ListItem = (props) => {
   const [checked, setChecked] = useState(props.checked);
 
   const handleDelete = async () => {
-    await axios.delete(`http://localhost:3001/listItem/${props.id}`);
+    await axios.delete(`https://listy-the-server.herokuapp.com/listItem/${props.id}`);
     const newItemList = activeList.listItems.filter(item => item._id != props.id);
     setActiveList({
       ...activeList,
@@ -26,7 +26,7 @@ const ListItem = (props) => {
     e.preventDefault();
 
     try {
-      await axios.patch(`http://localhost:3001/listItem/${props.id}`, {
+      await axios.patch(`https://listy-the-server.herokuapp.com/listItem/${props.id}`, {
         name: editItem.name,
         info: editItem.info
       }, {
@@ -34,7 +34,7 @@ const ListItem = (props) => {
           "Authorization": `Bearer ${token}`
       }}).then(setEditItem(null));
 
-      await axios.get(`http://localhost:3001/list/${activeList.id}`, {
+      await axios.get(`https://listy-the-server.herokuapp.com/list/${activeList.id}`, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
@@ -64,8 +64,8 @@ const ListItem = (props) => {
   const handleCheck = async (e) => {
     try {
       await setChecked(!checked);
-      await axios.patch(`http://localhost:3001/listItem/${props.id}`, { checked: !checked });
-      await axios.get(`http://localhost:3001/list/${activeList.id}`)
+      await axios.patch(`https://listy-the-server.herokuapp.com/listItem/${props.id}`, { checked: !checked });
+      await axios.get(`https://listy-the-server.herokuapp.com/list/${activeList.id}`)
         .then(res => setActiveList({...activeList, ...res.data}));
     } catch (error) {
       console.log(error);

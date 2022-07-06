@@ -17,7 +17,7 @@ const ListBubble = () => {
 
   const getLists = async () => {
     try {
-      await axios.get("http://localhost:3001/list/", {
+      await axios.get("https://listy-the-server.herokuapp.com/list/", {
         headers: {
           "Authorization": `Bearer ${token}`
       }}).then(response =>

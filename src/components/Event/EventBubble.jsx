@@ -13,7 +13,7 @@ const EventBubble = () => {
 
   const getEvents = async () => {
     try {
-      await axios.get("http://localhost:3001/event/", {
+      await axios.get("https://listy-the-server.herokuapp.com/event/", {
         headers: {
           "Authorization": `Bearer ${token}`
       }}).then(res =>

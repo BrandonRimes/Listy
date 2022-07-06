@@ -18,7 +18,7 @@ const RecordView = () => {
 
   const getOtherRecords = async () => {
     try {
-      await axios.get("http://localhost:3001/record/", {
+      await axios.get("https://listy-the-server.herokuapp.com/record/", {
         headers: {
           "Authorization": `Bearer ${token}`
       }}).then(response => setOtherRecords(response.data.filter(record => record._id != activeRecord._id)));
@@ -33,7 +33,7 @@ const RecordView = () => {
 
   const handleExit = async () => {
     try {
-      await axios.patch(`http://localhost:3001/record/${activeRecord._id}`, {activeRecord}, {
+      await axios.patch(`https://listy-the-server.herokuapp.com/record/${activeRecord._id}`, {activeRecord}, {
         headers: {
           "Authorization": `Bearer ${token}`
         }})
@@ -44,7 +44,7 @@ const RecordView = () => {
   };
 
   const handleDelete = async () => {
-    await axios.delete(`http://localhost:3001/record/${activeRecord._id}`).then(setActiveRecord(null));
+    await axios.delete(`https://listy-the-server.herokuapp.com/record/${activeRecord._id}`).then(setActiveRecord(null));
   };
 
   const handleOverlayClick = () => {

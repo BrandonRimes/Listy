@@ -11,7 +11,7 @@ const NewEventButton = () => {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:3001/event/", {name: "New Event", user: user.username, datetime: "", info: "", duration: ""}, {
+      await axios.post("https://listy-the-server.herokuapp.com/event/", {name: "New Event", user: user.username, datetime: "", info: "", duration: ""}, {
         headers: {
           "Authorization": `Bearer ${token}`
         }

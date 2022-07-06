@@ -25,7 +25,7 @@ const NewRecordForm = () => {
     e.preventDefault();
 
     try {
-      await axios.post(`http://localhost:3001/record/`, newRecord, {
+      await axios.post(`https://listy-the-server.herokuapp.com/record/`, newRecord, {
         headers: {
           "Authorization": `Bearer ${token}`
         }})

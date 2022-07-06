@@ -39,7 +39,7 @@ const Record = ({chartRecords}) => {
     e.preventDefault();
 
     try {
-      await axios.patch(`http://localhost:3001/record/${activeRecord._id}`, {name: newName})
+      await axios.patch(`https://listy-the-server.herokuapp.com/record/${activeRecord._id}`, {name: newName})
       .then(setActiveRecord({...activeRecord, name: newName}))
       .then(setNewName(null));
     } catch (error) {

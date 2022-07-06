@@ -20,7 +20,7 @@ const ShareListButton = () => {
     e.preventDefault();
 
     try {
-      await axios.patch(`http://localhost:3001/list/${activeList._id}`, {users: [...activeList.users, newListUser]})
+      await axios.patch(`https://listy-the-server.herokuapp.com/list/${activeList._id}`, {users: [...activeList.users, newListUser]})
         .then(response => setActiveList({...activeList, users: [...activeList.users, newListUser]}))
         .then(setNewListUser(false));
     } catch (error) {

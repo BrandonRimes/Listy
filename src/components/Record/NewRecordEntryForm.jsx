@@ -29,9 +29,9 @@ const NewRecordEntryForm = () => {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:3001/recordEntry/", newEntry).then(setNewEntry(emptyForm));
+      await axios.post("https://listy-the-server.herokuapp.com/recordEntry/", newEntry).then(setNewEntry(emptyForm));
 
-      await axios.get(`http://localhost:3001/record/${activeRecord._id}`)
+      await axios.get(`https://listy-the-server.herokuapp.com/record/${activeRecord._id}`)
         .then(res => setActiveRecord(res.data));
     } catch (error) {
       console.log(error);

@@ -14,7 +14,7 @@ const List = () => {
   const [newName, setNewName] = useState(null);
 
   const handleDelete = async () => {
-    await axios.delete(`http://localhost:3001/list/${activeList._id}`);
+    await axios.delete(`https://listy-the-server.herokuapp.com/list/${activeList._id}`);
     setActiveList(null);
   };
 
@@ -31,7 +31,7 @@ const List = () => {
     e.preventDefault();
 
     try {
-      await axios.patch(`http://localhost:3001/list/${activeList._id}`, {name: newName})
+      await axios.patch(`https://listy-the-server.herokuapp.com/list/${activeList._id}`, {name: newName})
       .then(setActiveList({...activeList, name: newName}))
       .then(setNewName(null));
     } catch (error) {
@@ -41,7 +41,7 @@ const List = () => {
 
   const handleExit = async () => {
     try {
-      await axios.patch(`http://localhost:3001/list/${activeList._id}`, {activeList}, {
+      await axios.patch(`https://listy-the-server.herokuapp.com/list/${activeList._id}`, {activeList}, {
         headers: {
           "Authorization": `Bearer ${token}`
         }})

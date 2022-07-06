@@ -6,7 +6,7 @@ const RecordEntry = (props) => {
   const [activeRecord, setActiveRecord] = useGlobal("activeRecord");
 
   const handleDelete = async () => {
-    await axios.delete(`http://localhost:3001/recordEntry/${props.entry._id}`);
+    await axios.delete(`https://listy-the-server.herokuapp.com/recordEntry/${props.entry._id}`);
     const newEntryList = activeRecord.recordEntries.filter(entry => entry._id != props.entry._id);
     setActiveRecord({
       ...activeRecord,

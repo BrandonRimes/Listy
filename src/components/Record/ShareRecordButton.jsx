@@ -20,7 +20,7 @@ const ShareRecordButton = () => {
     e.preventDefault();
 
     try {
-      await axios.patch(`http://localhost:3001/record/${activeRecord._id}`, {users: [...activeRecord.users, newRecordUser]})
+      await axios.patch(`https://listy-the-server.herokuapp.com/record/${activeRecord._id}`, {users: [...activeRecord.users, newRecordUser]})
         .then(setActiveRecord({...activeRecord, users: [...activeRecord.users, newRecordUser]}))
         .then(setNewRecordUser(false));
     } catch (error) {

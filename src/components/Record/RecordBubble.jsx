@@ -11,7 +11,7 @@ const RecordBubble = () => {
 
   const getRecords = async () => {
     try {
-      await axios.get("http://localhost:3001/record/", {
+      await axios.get("https://listy-the-server.herokuapp.com/record/", {
         headers: {
           "Authorization": `Bearer ${token}`
       }}).then(response => setRecords(response.data.sort((a,b) =>

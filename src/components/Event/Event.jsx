@@ -26,7 +26,7 @@ const Event = () => {
 
     try {
 
-      await axios.patch(`http://localhost:3001/event/${activeEvent._id}`, activeEvent, {
+      await axios.patch(`https://listy-the-server.herokuapp.com/event/${activeEvent._id}`, activeEvent, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
@@ -45,7 +45,7 @@ const Event = () => {
   };
 
   const handleDelete = async () => {
-    await axios.delete(`http://localhost:3001/event/${activeEvent._id}`);
+    await axios.delete(`https://listy-the-server.herokuapp.com/event/${activeEvent._id}`);
     setActiveEvent(null);
   };
 

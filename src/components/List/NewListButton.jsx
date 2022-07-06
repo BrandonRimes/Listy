@@ -12,7 +12,7 @@ const NewListButton = () => {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:3001/list/", {name: "New List", user: user.username}, {
+      await axios.post("https://listy-the-server.herokuapp.com/list/", {name: "New List", user: user.username}, {
         headers: {
           "Authorization": `Bearer ${token}`
         }

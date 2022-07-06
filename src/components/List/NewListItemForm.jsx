@@ -23,13 +23,13 @@ const NewListItemForm = () => {
     e.preventDefault();
 
     try {
-      await axios.post(`http://localhost:3001/listItem/`, {...newItem}, {
+      await axios.post(`https://listy-the-server.herokuapp.com/listItem/`, {...newItem}, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
       }).then(setNewItem({ name: "", info: "", list: activeList.id }));
       
-      await axios.get(`http://localhost:3001/list/${activeList.id}`, {
+      await axios.get(`https://listy-the-server.herokuapp.com/list/${activeList.id}`, {
         headers: {
           "Authorization": `Bearer ${token}`
         }

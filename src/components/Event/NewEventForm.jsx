@@ -28,7 +28,7 @@ const NewEventForm = () => {
     e.preventDefault();
 
     try {
-      await axios.post(`http://localhost:3001/event/`, newEvent, {
+      await axios.post(`https://listy-the-server.herokuapp.com/event/`, newEvent, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
