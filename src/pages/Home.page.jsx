@@ -11,7 +11,7 @@ const Home = () => {
 
   return (
     <div className="page homePage">
-      { !token && <Navigate replace to="/"/> }
+      { !token && <Navigate replace to="/login"/> }
       {/* <Settings /> */}
       <ListBubble />
       <RecordBubble />

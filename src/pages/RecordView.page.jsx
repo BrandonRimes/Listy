@@ -72,7 +72,7 @@ const RecordView = () => {
       { activeRecord == "new" && <NewRecordForm /> }
       { activeRecord && activeRecord != "new" && 
       <Record chartRecords={chartRecords}/> }
-      { !token && <Navigate replace to="/"/> }
+      { !token && <Navigate replace to="/login"/> }
       { !activeRecord && <Navigate replace to="/home" /> }
       <div id="overlay" onBlur={handleOverlayBlur} tabIndex="-1">
         { overlayOpen ?

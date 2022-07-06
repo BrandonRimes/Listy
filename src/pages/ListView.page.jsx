@@ -8,7 +8,7 @@ const ListView = () => {
 
   return (
     <div className="page">
-      { !token && <Navigate replace to="/"/> }
+      { !token && <Navigate replace to="/login"/> }
       <List />
     </div>
   )
