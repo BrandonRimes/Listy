@@ -129,7 +129,7 @@ button {
 }
 
 .bubble {
-  height: 25%;
+  height: 9rem;
   width: 80%;
   border: var(--bubble-border);
   border-radius: 10px;
@@ -144,10 +144,10 @@ button {
 }
 
 .bubbleItems {
-  height: 65%;
+  height: 5rem;
   overflow-y: scroll;
   border: var(--bubble-border);
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 6px 6px;
   padding: 0.5rem;
 }
 
@@ -179,17 +179,24 @@ button {
 .newListItemForm {
   position: relative;
   flex-direction: row;
-  width: 65vw;
+  align-items: space-around;
+  width: 75vw;
 }
 
 .newListItemInputs {
   width: 75%;
+  margin: 0;
+}
+
+.newListItemInputs * {
+  width: 90%;
 }
 
 .newListItemButton {
-  position: absolute;
-  right: 0;
+  /* position: absolute; */
+  /* right: 0; */
   font-size: 1.25rem;
+  margin: 0;
 }
 
 .listItems {
@@ -364,6 +371,7 @@ button {
  
 #eventPage {
   justify-content: space-evenly;
+  padding-bottom: 12vh;
 }
 
 .event {
