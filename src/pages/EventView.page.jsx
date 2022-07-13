@@ -11,7 +11,7 @@ const EventView = () => {
   const [token, setToken] = useGlobal("token");
   const [activeEvent, setActiveEvent] = useGlobal("activeEvent");
 
-  const [calVal, setCalVal] = useState(new Date());
+  const [calVal, setCalVal] = useState(activeEvent && activeEvent.datetime ? new Date(activeEvent.datetime) : new Date());
 
   const handleExit = async () => {
     try {
@@ -32,7 +32,7 @@ const EventView = () => {
       { activeEvent && <>
         <Event />
       </> }
-      <Calendar />
+      <Calendar onChange={setCalVal} value={calVal}/>
       <ShareEventButton />
       { !activeEvent && <Navigate replace to="/home"/> }
       { !token && <Navigate replace to="/"/> }

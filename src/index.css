@@ -6,7 +6,7 @@
 
   --button-border: 1px solid deeppink;
   --button-color: black;
-  --button-background: transparent;
+  --button-background: var(--main-background);
 
   --input-border: none;
   --input-color: black;
@@ -30,7 +30,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
+  height: 100%;
+  min-height: -webkit-fill-available;
   width: 100vw;
   overflow: hidden;
   background: var(--main-background);
@@ -264,6 +265,7 @@ button {
   position: absolute;
   bottom: 2%;
   right: 5%;
+  z-index: 10;
 }
 
 .shareList,
